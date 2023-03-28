@@ -9,7 +9,6 @@ const mutationObserver = new MutationObserver(function (mutations) {
 })
 
 
-
 function getAds() {
     return document.getElementsByClassName('labeled-product')
 }
@@ -35,6 +34,5 @@ function removeAds(list) {
     // Find all sponsored items and remove them
     const ads = getAds()
     removeAds(ads)
-
 
 })()

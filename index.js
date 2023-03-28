@@ -1,11 +1,13 @@
 const mainContent = document.querySelector(".list")
 
 
+// Get content changes (e.g. changing search filters)
 const mutationObserver = new MutationObserver(function (mutations) {
     console.log("Mutated!");
     const ads = getAds()
     removeAds(ads)
 })
+
 
 
 function getAds() {
@@ -15,10 +17,11 @@ function getAds() {
 
 function removeAds(list) {
     // Iterate the HTMLcollection and change the opacity for all sponsores products
-    for (let item of list) {
+
+    [...list].map((item) => {
         // item.style.opacity = 0.2
         item.style.display = "none"
-    }
+    })
 }
 
 
@@ -29,7 +32,7 @@ function removeAds(list) {
         attributes: true
     })
 
-    // Find all sponsored items by their classname
+    // Find all sponsored items and remove them
     const ads = getAds()
     removeAds(ads)
 

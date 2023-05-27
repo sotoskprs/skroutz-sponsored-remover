@@ -10,7 +10,7 @@ const mutationObserver = new MutationObserver(function (mutations) {
 
 
 function getAds() {
-    return document.getElementsByClassName('labeled-product')
+    return document.querySelectorAll('.labeled-product, .labeled-item')
 }
 
 

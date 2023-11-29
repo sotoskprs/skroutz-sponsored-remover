@@ -1,19 +1,19 @@
 const mainContent = document.querySelector(".list")
 
 
-// Get content changes (e.g. changing search filters)
+// Detect content changes (e.g. changing search filters) and remove again the ads
 const mutationObserver = new MutationObserver(function (mutations) {
-    console.log("Mutated!");
+    console.log("Content changed!"); // Notify in the console when the content has changed
     const ads = getAds()
     removeAds(ads)
 })
 
-
+// Finds the adds on the current page
 function getAds() {
     return document.querySelectorAll('.labeled-product, .labeled-item')
 }
 
-
+// Removes the adds found with getAds()
 function removeAds(list) {
     // Iterate the HTMLcollection and change the opacity for all sponsores products
 
@@ -23,7 +23,7 @@ function removeAds(list) {
     })
 }
 
-
+// Initialize the script
 (function () {
     'use strict';
 

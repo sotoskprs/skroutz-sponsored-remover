@@ -3,4 +3,9 @@ Removes sponsored products from product list. The products will be seen eventual
 
 ## Usage
 
-- Add this code to a userscript on your browser
+- Add this code to a userscript addon on your favorite browser
+
+
+## Published
+
+- This userscript is published into [greasyfork.org]

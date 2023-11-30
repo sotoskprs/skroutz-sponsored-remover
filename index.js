@@ -1,11 +1,22 @@
+// ==UserScript==
+// @name         Skroutz sponsored remover
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Removes all sponsored products from product list (sponsored products are dublicates, so you will not loose actually loose those).
+// @author       Sotiris Kipouros
+// @license      MIT
+// @match        https://www.skroutz.gr/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=skroutz.gr
+// @grant        none
+// ==/UserScript==
+
 const mainContent = document.querySelector(".list")
 
 
 // Detect content changes (e.g. changing search filters) and remove again the ads
 const mutationObserver = new MutationObserver(function (mutations) {
     console.log("Content changed!"); // Notify in the console when the content has changed
-    const ads = getAds()
-    removeAds(ads)
+    removeAds(getAds())
 })
 
 // Finds the adds on the current page

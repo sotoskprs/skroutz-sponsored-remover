@@ -8,4 +8,4 @@ Removes sponsored products from product list. The products will be seen eventual
 
 ## Published
 
-- This userscript is published into [greasyfork.org]
+- This userscript is published into [greasyfork.org](https://greasyfork.org/en/scripts/481045-skroutz-sponsored-remover)

@@ -8,6 +8,8 @@
 // @match        https://www.skroutz.gr/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=skroutz.gr
 // @grant        none
+// @downloadURL  https://update.greasyfork.org/scripts/481045/Skroutz%20sponsored%20remover.user.js
+// @updateURL    https://update.greasyfork.org/scripts/481045/Skroutz%20sponsored%20remover.meta.js
 // ==/UserScript==
 
 const mainContent = document.querySelector(".list")

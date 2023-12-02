@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Skroutz sponsored remover
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.4.1
 // @description  Removes all sponsored products from product list (sponsored products are dublicates, so you will see them at their natural order).
 // @author       Sotiris Kipouros
 // @license      MIT

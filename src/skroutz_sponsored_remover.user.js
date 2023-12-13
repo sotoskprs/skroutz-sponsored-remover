@@ -49,11 +49,13 @@ function removeAds(list) {
     'use strict';
 
     console.log(skuList);
-    
-    // Initialize content changes detection if 
-    mutationObserver.observe(skuList, {
-        attributes: true
-    })
+
+    // Initialize content changes detection in product category page
+    if (skuList) {
+        mutationObserver.observe(skuList, {
+            attributes: true
+        })
+    }
 
     // Find all sponsored items and remove them on page's first load
     const ads = getAds()

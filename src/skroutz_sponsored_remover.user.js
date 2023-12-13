@@ -12,12 +12,12 @@
 // @updateURL    https://update.greasyfork.org/scripts/481045/Skroutz%20sponsored%20remover.meta.js
 // ==/UserScript==
 
-const mainContent = document.querySelector(".list")
+const mainContent = document.querySelector("#sku-list")
 
 
 // Detect content changes (e.g. changing search filters) and remove again the ads
 const mutationObserver = new MutationObserver(function (mutations) {
-    console.log("Content changed!"); // Notify in the console when the content has changed
+    // console.log("Content changed!"); // Notify in the console when the content has changed
     removeAds(getAds())
 })
 
@@ -26,7 +26,7 @@ function getAds() {
     return document.querySelectorAll('.labeled-product, .labeled-item')
 }
 
-// Removes the adds found with getAds()
+// Removes the ads found with getAds()
 function removeAds(list) {
     // Iterate the HTMLcollection and change the opacity for all sponsores products
 
@@ -40,12 +40,12 @@ function removeAds(list) {
 (function () {
     'use strict';
 
+    // Initialize content changes detection
     mutationObserver.observe(mainContent, {
         attributes: true
     })
 
-    // Find all sponsored items and remove them
+    // Find all sponsored items and remove them on page's first load
     const ads = getAds()
     removeAds(ads)
-
 })()

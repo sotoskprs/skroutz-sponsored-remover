@@ -13,8 +13,13 @@
 // @updateURL    https://update.greasyfork.org/scripts/481045/Skroutz%20sponsored%20remover.meta.js
 // ==/UserScript==
 
-// Get product list element if present
-const mainContent = document.querySelector("#sku-list")
+console.log('skroutz-sponsored-remover is RUNNING');
+
+// Get product list element in products category page
+const skuList = document.querySelector("#sku-list") || false
+
+// Get sponsored products card in product page
+const sponsoredProductsCard = document.querySelector(".sponsored-product-cards")
 
 // Detect content changes (e.g. changing search filters) and remove again the ads
 const mutationObserver = new MutationObserver(function (mutations) {
@@ -43,8 +48,10 @@ function removeAds(list) {
 (function () {
     'use strict';
 
-    // Initialize content changes detection
-    mutationObserver.observe(mainContent, {
+    console.log(skuList);
+    
+    // Initialize content changes detection if 
+    mutationObserver.observe(skuList, {
         attributes: true
     })
 

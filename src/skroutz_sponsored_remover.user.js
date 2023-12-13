@@ -13,44 +13,51 @@
 // @updateURL    https://update.greasyfork.org/scripts/481045/Skroutz%20sponsored%20remover.meta.js
 // ==/UserScript==
 
-console.log('skroutz-sponsored-remover is RUNNING');
+// console.log('skroutz-sponsored-remover is RUNNING'); // DEBUGGING - shows that script is running on this page
 
-// Get product list element in products category page
+// Get product list element in products category list to detect mutations or set to false in order for the observer to not initialize
 const skuList = document.querySelector("#sku-list") || false
 
 // Get sponsored products card in product page
-const sponsoredProductsCard = document.querySelector(".sponsored-product-cards")
+const sponsoredProductsCard = document.querySelector(".sponsored-product-cards") || false
 
 // Detect content changes (e.g. changing search filters) and remove again the ads
 const mutationObserver = new MutationObserver(function (mutations) {
     // console.log("Content changed!"); // Notify in the console when the content has changed
-    removeAds(getAds())
+    removeAdsFromCategory(getAds())
 })
 
-// Finds the adds on the current page
+// Finds all sponsored products into current product list (in a category)
 function getAds() {
     return document.querySelectorAll('.labeled-product, .labeled-item')
 }
 
-// Removes the ads found with getAds()
-function removeAds(list) {
+// Removes the sponsored products in category list
+function removeAdsFromCategory(list) {
+    // return false; // DEBUGGING - stops the ad removal
+    
     // Iterate the HTMLcollection and change the opacity for all sponsores products
-
-    return false; // DEBUG - stops the ad removal
-
-    [...list].map((item) => {
-        // item.style.opacity = 0.2
-        item.style.display = "none"
+    [...list].map((element) => {
+        sponsoredStyle(element)
     })
+}
+
+// Removes the "sponsored" card from product page
+function removeAdsFromProductPage(element) {
+    sponsoredStyle(element)
+}
+
+// Style modification for sponsored elements - Applies to all kind of sponsored elements
+function sponsoredStyle(element) {
+    // element.style.opacity = 0.2 // DEBUGGING - grays out sponsored (comment the other css modifications)
+    element.style.display = "none"
 }
 
 // Initialize the script
 (function () {
     'use strict';
 
-    console.log(skuList);
-
-    // Initialize content changes detection in product category page
+    // Initialize content changes detection in product category list
     if (skuList) {
         mutationObserver.observe(skuList, {
             attributes: true
@@ -59,5 +66,9 @@ function removeAds(list) {
 
     // Find all sponsored items and remove them on page's first load
     const ads = getAds()
-    removeAds(ads)
+    removeAdsFromCategory(ads)
+
+    if (sponsoredProductsCard) {
+        removeAdsFromProductPage(sponsoredProductsCard)
+    }
 })()

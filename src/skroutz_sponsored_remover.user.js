@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Skroutz sponsored remover
 // @namespace    http://tampermonkey.net/
-// @version      1.5.1
+// @version      1.5.2
 // @description  Removes all sponsored products from product list (sponsored products are dublicates, so you will see them at their natural order).
 // @author       Sotiris Kipouros
 // @license      MIT
@@ -63,7 +63,7 @@ function sponsoredStyle(element) {
 (function () {
   "use strict";
 
-  console.log("Skroutz Sponsored Remover: Script initialized");
+  //   console.log("Skroutz Sponsored Remover: Script initialized");
 
   // Initialize content changes detection in product category list
   if (skuList) {
@@ -77,7 +77,7 @@ function sponsoredStyle(element) {
   removeAdsFromCategory(ads);
 
   if (sponsoredProductsCard) {
-    console.log("Skroutz Sponsored Remover: Product page detected");
+    // console.log("Skroutz Sponsored Remover: Product page detected");
     removeAdsFromProductPage(sponsoredProductsCard);
   }
 })();
